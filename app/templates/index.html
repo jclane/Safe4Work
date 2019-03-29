@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+    {% if article is defined %}
+        <div>
+            <h1>{{ article.title }}</h1>
+            <p>{{ article.content }}</p>
+        </div>
+    {% endif %}
+{% endblock %}
