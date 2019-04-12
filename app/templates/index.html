@@ -2,9 +2,18 @@
 
 {% block content %}
     {% if article is defined %}
-        <div>
-            <h1>{{ article.title }}</h1>
-            <p>{{ article.content }}</p>
-        </div>
+        <div style="max-width:800px">
+		<p>Title: {{ article.title }}</p>
+		<p>{% if article.authors|length > 1 %}
+			Authors: 
+		   {% else %}
+			Author:
+ 		   {% endif %}
+		   {{ article.authors|join(", ") }}</p>
+		<p>Published: {{ article.pub_date }}</p>
+                {% for paragraph in article.text %}
+			<p>{{ paragraph }}</p>
+		{% endfor %}
+	</div>
     {% endif %}
 {% endblock %}

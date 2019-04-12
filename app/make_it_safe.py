@@ -1,13 +1,38 @@
 import requests
-from bs4 import BeautifulSoup
+from newspaper import Article
 
 
-def make_it_safe(url):
-    headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.76 Safari/537.36'} # This is chrome, you can set whatever browser you like
-    req = requests.get(url, headers=headers)
-    soup = BeautifulSoup(req.content, features="html.parser")
-    site = soup.find("article")
-    title = site.find("h1", "entry-title")
-    content = site.find("div", "entry-content")
 
-    return {"title":title.get_text(), "content":content.get_text()}
+class SafeArticle:
+
+    def __init__(self, url):
+        self.article = self.make_it_safe(url)
+        #self.text = self.article.text
+        #self.authors = self.article.authors
+        #self.pub_date = self.article.publish_date
+
+    def make_it_safe(self, url):
+        raw_article = Article(url)
+        raw_article.download()
+        raw_article.parse()
+
+        self.set_title(raw_article.title.replace("/", "\\"))
+        self.set_text(raw_article.text.split("\n"))
+        self.set_authors(raw_article.authors)
+        self.set_pub_date(raw_article.publish_date)
+
+    def set_title(self, title):
+        self.title = title
+
+    def set_text(self, text):
+        self.text = text
+
+    def set_authors(self, authors):
+        self.authors = authors
+
+    def set_pub_date(self, pub_date):
+        self.pub_date = pub_date
+
+
+
+
