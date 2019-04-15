@@ -1,39 +1,29 @@
-from newspaper import Article
-
+from newspaper import Article, build
+from urllib.parse import urlsplit, urlunsplit
 
 
 class SafeArticle:
 
     def __init__(self, url):
-        self.article = self.make_it_safe(url)
-        #self.text = self.article.text
-        #self.authors = self.article.authors
-        #self.pub_date = self.article.publish_date
+        self.raw_article = self.make_it_safe(url)
+        self.title = self.raw_article.title.replace("/", "\\")
+        self.text = self.raw_article.text.split("\n")
+        self.authors = self.raw_article.authors
+        self.pub_date = self.raw_article.publish_date
+        self.top_img = self.raw_article.top_image
+        self.source = self.set_source(url)
 
     def make_it_safe(self, url):
         raw_article = Article(url)
         raw_article.download()
         raw_article.parse()
+        return raw_article
 
-        self.set_title(raw_article.title.replace("/", "\\"))
-        self.set_text(raw_article.text.split("\n"))
-        self.set_authors(raw_article.authors)
-        self.set_pub_date(raw_article.publish_date)
-        self.set_top_img(raw_article.top_image)
-
-    def set_title(self, title):
-        self.title = title
-
-    def set_text(self, text):
-        self.text = text
-
-    def set_authors(self, authors):
-        self.authors = authors
-
-    def set_pub_date(self, pub_date):
-        self.pub_date = pub_date
-
-    def set_top_img(self, top_img):
-        self.top_img = top_img
-
-
+    def set_source(self, url):
+        split_url = urlsplit(self.raw_article.url)
+        base_url = (split_url[0], split_url[1], "", "", "")
+        raw_source = build(urlunsplit(base_url))
+        for article in raw_source.articles:
+            article.download()
+            article.parse()
+        return raw_source
