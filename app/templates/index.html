@@ -2,18 +2,24 @@
 
 {% block content %}
     {% if article is defined %}
-        <div style="max-width:800px">
-		<p>Title: {{ article.title }}</p>
-		<p>{% if article.authors|length > 1 %}
-			Authors: 
-		   {% else %}
-			Author:
- 		   {% endif %}
-		   {{ article.authors|join(", ") }}</p>
-		<p>Published: {{ article.pub_date }}</p>
-                {% for paragraph in article.text %}
-			<p>{{ paragraph }}</p>
-		{% endfor %}
-	</div>
+        <section id="article-main" style="max-width:800px">
+		    <p id="article-title">Title: {{ article.title }}</p>
+		    <p id="article-authors">
+                {% if article.authors|length > 1 %}
+			        Authors:
+	            {% else %}
+			        Author:
+ 		        {% endif %}
+		        {{ article.authors|join(", ") }}
+            </p>
+		    <p id="article-pub-date">Published: {{ article.pub_date }}</p>
+            {% for paragraph in article.text %}
+		    	<p class="article-paragraph">{{ paragraph }}</p>
+		    {% endfor %}
+	    </section>
+
+	    <section id="top-image">
+	        <img src="{{ article.top_img }}">
+	    </section>
     {% endif %}
 {% endblock %}

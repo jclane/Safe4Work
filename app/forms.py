@@ -4,5 +4,5 @@ from wtforms.validators import DataRequired, url
 
 
 class SearchForm(FlaskForm):
-    address = StringField("Enter Address:", validators=[DataRequired(), url()])
-    submit = SubmitField("Make SFW")
+    address = StringField(validators=[DataRequired(), url()])
+    submit = SubmitField("Make S4W")
