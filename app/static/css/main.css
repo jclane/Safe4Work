@@ -1,10 +1,15 @@
-#nav {
-  float: left;
-  padding: 5px;
+html, body {
+  margin: 0;
+  width: 100%;
+}
+
+#top-bar {
+  margin: 0 0 0 0;
 }
 
 form {
-  float: left;
+  margin-bottom: 0;
+  margin-top: 15px;
 }
 
 #address {
@@ -22,4 +27,8 @@ form {
 
 hr {
   clear: both;
+}
+
+#top-image img {
+  max-width: 800px;
 }

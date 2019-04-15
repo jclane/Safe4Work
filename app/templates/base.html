@@ -1,9 +1,9 @@
 <html>
     <head>
       {% if title %}
-      <title>SFW - {{ title }}</title>
+      <title>S4W - {{ title }}</title>
       {% else %}
-      <title>Welcome to SafeForWork</title>
+      <title>Welcome to Safe4Work</title>
       {% endif %}
 
       <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
@@ -11,17 +11,14 @@
     </head>
     <body>
         <section id="top-bar">
-		<section id="nav"><p>SFW -
-        	    <a href="{{ url_for('index') }}">Home | </a>
-	        </section>
-                <form action="" method="post" novalidate>
-        	        {{ form.hidden_tag() }}
-                	{{ form.address(size=64) }}{{ form.submit() }}
-	                {% for error in form.address.errors %}
-        	        <span style="color: red;">[{{ error }}]</span>
-	                {% endfor %}
-                </form>
-	</section>
+            <form action="" method="post" novalidate>
+                {{ form.hidden_tag() }}
+           	    {{ form.address(size=64) }}{{ form.submit() }}
+                {% for error in form.address.errors %}
+                    <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}
+            </form>
+        </section>
         <hr>
         {% block content %}{% endblock %}
     </body>

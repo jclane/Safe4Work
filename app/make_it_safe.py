@@ -19,6 +19,7 @@ class SafeArticle:
         self.set_text(raw_article.text.split("\n"))
         self.set_authors(raw_article.authors)
         self.set_pub_date(raw_article.publish_date)
+        self.set_top_img(raw_article.top_image)
 
     def set_title(self, title):
         self.title = title
@@ -32,6 +33,7 @@ class SafeArticle:
     def set_pub_date(self, pub_date):
         self.pub_date = pub_date
 
-
+    def set_top_img(self, top_img):
+        self.top_img = top_img
 
 
