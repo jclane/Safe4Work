@@ -1,15 +1,11 @@
 html, body {
   margin: 0;
-  width: 100%;
 }
 
+/* Start top bar */
 #top-bar {
-  margin: 0 0 0 0;
-}
-
-form {
-  margin-bottom: 0;
-  margin-top: 15px;
+  padding-left: 15px;
+  padding-top: 15px;
 }
 
 #address {
@@ -26,9 +22,46 @@ form {
 }
 
 hr {
+  width: 100%;
   clear: both;
 }
 
-#top-image img {
-  max-width: 800px;
+/* Start article */
+#article-main {
+  display: block;
+  padding: 0 15px;
 }
+
+#article-text {
+  max-width: 50%;
+}
+
+#article-source {
+  position: absolute;
+  top: 6%;
+  right: 15%;
+  padding-left: 50%;
+}
+
+#article-source ul {
+    list-style-type: none;
+}
+
+#article-source li {
+  border: 0.75px solid #000;
+  padding: 5px;
+}
+
+#article-source a {
+  text-decoration: none
+}
+
+#article-image {
+  width: 50%;
+  clear: both;
+}
+
+#article-image img {
+  max-width: 400px;
+}
+
