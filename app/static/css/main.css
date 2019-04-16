@@ -26,42 +26,52 @@ hr {
   clear: both;
 }
 
+.container {
+  width: auto;
+}
+
 /* Start article */
-#article-main {
-  display: block;
-  padding: 0 15px;
-}
-
 #article-text {
+  float: left;
   max-width: 50%;
-}
-
-#article-source {
-  position: absolute;
-  top: 80px;
-  right: 5%;
-  padding-left: 50%;
-}
-
-#article-source ul {
-    list-style-type: none;
-}
-
-#article-source li {
-  border: 0.75px solid #000;
-  padding: 5px;
-}
-
-#article-source a {
-  text-decoration: none
 }
 
 #article-image {
   width: 50%;
-  clear: both;
 }
 
 #article-image img {
   max-width: 400px;
 }
 
+#other-articles {
+  float: left;
+}
+
+#other-articles ul {
+  list-style-type: none;
+}
+
+#other-articles li {
+  border: 0.75px solid #000;
+  max-width: 65%;
+  padding: 10px;
+  margin: 1px;
+}
+
+#other-articles li::hover {
+  background: blue;
+}
+
+#other-articles a {
+  text-decoration: none
+}
+
+/* Small screen */
+@media screen and (max-width: 1500px) {
+
+  #article-source {
+    position: relative;
+  }
+
+}

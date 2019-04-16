@@ -9,5 +9,5 @@ from app import app
 def index():
     form = SearchForm(request.form)
     if form.validate_on_submit():
-        return render_template("index.html", title="BLAH", form=form, article=SafeArticle(request.form["address"]))
+        return render_template("index.html", title="BLAH", form=form, article=SafeArticle(request.form["address"].strip()))
     return render_template("index.html", title="Home", form=form)
