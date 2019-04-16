@@ -59,12 +59,9 @@ hr {
   margin: 1px;
 }
 
-#other-articles li::hover {
-  background: blue;
-}
-
-#other-articles a {
-  text-decoration: none
+#other-articles li:hover {
+  background-color: #e8e8e8;
+  cursor: copy;
 }
 
 /* Small screen */
