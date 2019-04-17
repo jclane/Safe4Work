@@ -4,6 +4,7 @@ html, body {
 
 /* Start top bar */
 #top-bar {
+  width: 100%;
   padding-left: 15px;
   padding-top: 15px;
 }
@@ -14,38 +15,35 @@ html, body {
   border-bottom: 0.75px solid black;
 }
 
-#submit {
+#submit_btn {
   padding: 5px;
   border: 0.75px solid #000;
   background-color: #fff;
   cursor: pointer;
 }
 
-hr {
-  width: 100%;
-  clear: both;
-}
-
-.container {
-  width: auto;
+#submit_btn:hover {
+  background-color: #e8e8e8;
 }
 
 /* Start article */
+.container {
+  width: 100%;
+  padding: 40px;
+}
+
 #article-text {
   float: left;
   max-width: 50%;
 }
 
 #article-image {
+  float: left;
   width: 50%;
 }
 
 #article-image img {
   max-width: 400px;
-}
-
-#other-articles {
-  float: left;
 }
 
 #other-articles ul {
@@ -61,14 +59,15 @@ hr {
 
 #other-articles li:hover {
   background-color: #e8e8e8;
-  cursor: copy;
+  cursor: pointer;
 }
 
 /* Small screen */
 @media screen and (max-width: 1500px) {
 
-  #article-source {
+  #other-articles {
     position: relative;
+    padding: 0;
   }
 
 }

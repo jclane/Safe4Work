@@ -19,6 +19,10 @@
 		        {% endfor %}
 	        </section>
 
+    	    <section id="article-image">
+	            <img src="{{ article.top_img }}">
+            </section>
+
             <section id="other-articles">
                 <ul>Recent articles from {{ article.source.brand }}:
                     {% for recent_article in article.source.articles %}
@@ -26,11 +30,6 @@
                     {% endfor %}
                 </ul>
             </section>
-
-    	    <section id="article-image">
-	            <img src="{{ article.top_img }}">
-            </section>
-
         </section>
 
 
