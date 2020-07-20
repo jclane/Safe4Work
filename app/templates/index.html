@@ -2,7 +2,7 @@
 
 {% block content %}
     {% if article is defined %}
-        <section id="article-main">
+        <section class="container">
 	        <section id="article-text">
 		        <p id="article-title">Title: {{ article.title }}</p>
 		        <p id="article-authors">
@@ -23,14 +23,15 @@
 	            <img src="{{ article.top_img }}">
             </section>
 
-	        <section id="article-source">
-	            <ul>Recent articles from {{ article.source.brand }}:
-	                {% for recent_article in article.source.articles %}
-	                    <li><a href="{{ recent_article.url }}">{{ recent_article.title }}</a></li>
-	                {% endfor %}
-	            </ul>
-	        </section>
-	    </section>
+            <section id="other-articles">
+                <ul>Recent articles from {{ article.source.brand }}:
+                    {% for recent_article in article.source.articles %}
+                        <li onclick="copyURL('{{ recent_article.url }}')">{{ recent_article.title }}</li>
+                    {% endfor %}
+                </ul>
+            </section>
+        </section>
+
 
     {% endif %}
 {% endblock %}

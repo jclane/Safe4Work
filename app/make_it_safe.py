@@ -24,7 +24,7 @@ class SafeArticle:
         base_url = (split_url[0], split_url[1], "", "", "")
         raw_source = build(urlunsplit(base_url))
         sauce = [raw_source]
-        news_pool.set(sauce, threads_per_source=4)
+        news_pool.set(sauce, threads_per_source=10)
         news_pool.join()
         for article in raw_source.articles:
             article.parse()

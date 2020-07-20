@@ -11,9 +11,9 @@
     </head>
     <body>
         <section id="top-bar">
-            <form action="" method="post" novalidate>
+            <form id="url-form" action="" method="post" novalidate>
                 {{ form.hidden_tag() }}
-           	    {{ form.address(size=64) }}{{ form.submit() }}
+           	    {{ form.address(size=64) }}{{ form.submit_btn() }}
                 {% for error in form.address.errors %}
                     <span style="color: red;">[{{ error }}]</span>
                 {% endfor %}
@@ -22,4 +22,7 @@
         <hr>
         {% block content %}{% endblock %}
     </body>
+    <footer>
+	<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    </footer>
 </html>
