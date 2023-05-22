@@ -19,7 +19,7 @@ nltk==3.6.6
 Pillow>=7.1.0
 python-dateutil==2.8.0
 PyYAML==5.4
-requests==2.21.0
+requests==2.31.0
 requests-file==1.4.3
 singledispatch==3.4.0.3
 six==1.12.0
